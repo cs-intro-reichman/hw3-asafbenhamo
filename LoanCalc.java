@@ -50,7 +50,7 @@ public class LoanCalc {
 		// Replace the following statement with your code
 		iterationCounter = 0;  
 		double g = loan / n;
-		while (Math.abs(endBalance(loan, rate, n, g)) >= epsilon) {
+		while (endBalance(loan, rate, n, g) >= epsilon) {
 			g = g + epsilon;
 			iterationCounter ++;
 		}
