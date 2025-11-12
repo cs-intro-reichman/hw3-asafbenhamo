@@ -62,6 +62,7 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
 		int t= x1;
+		int r = minus(0, x1);
         if ((x2 == 0) || (x1 == 0)) return  0;
 		if ((x2 > 0) || (x1 > 0)){
 		for (int i = 1 ; i<x2 ; i++){
@@ -79,7 +80,7 @@ public class Algebra {
 		else if ((x2 > 0) && (x1 < 0)){
 		x1 = minus(0, x1);
 		for (int i = 1 ; i<x2 ; i++){
-		x1 = plus(x1, t);
+		x1 = plus(x1, r);
 			}
          x1 = minus(0, x1);
 		}
@@ -87,7 +88,7 @@ public class Algebra {
 			x1 = minus(0, x1);
 		    x2 = minus(0, x2);
 		for (int i = 1 ; i<x2 ; i++){
-		x1 = plus(x1, t);
+		x1 = plus(x1, r);
 			}
 
 		}
@@ -101,8 +102,10 @@ public class Algebra {
 	public static int pow(int x, int n) {
 		// Replace the following statement with your code
 		int o = x;
+		int f = minus(0, x);
 		if (n == 0) return 1;
 		if ( x ==0) return 0;
+		if (x>0) {
 		if (n>0) {
 		for (int p = 1 ; p < n; p++){
 			x = times(x, o);
@@ -124,15 +127,35 @@ public class Algebra {
 
 			}
 		}
+	}
+	if (x<0){
+		if (mod(n,2)==0) {  
+			x = minus(0, x);
+		   for (int p = 1 ; p < n; p++){
+			x = times(x, o);
+			}
+			}
+			else {
+				x= minus(0, x);
+		   for (int p = 1 ; p < n; p++){
+			x = times(x, f);
+			}
+			x = minus(0, x);
+
+			}
+
+	}
 		return x;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		// Replace the following statement with your code
-		if (x2 == 0) return 0;
+		if (x1 == 0) return 0; 
+		if (x2==0) return 0;
 		int count = 0;
 		int t = x2;
+		int v = minus(0, x2);
 		if ((x2>0)&&(x1>0)) {
 		while (x2<=x1) {
 			x2= plus(x2, t);
@@ -142,7 +165,7 @@ public class Algebra {
 		if ((x2<0)&&(x1>0)) {
 		x2 = minus(x2, x2);
 		while (x2<=x1) {
-			x2= plus(x2, t);
+			x2= plus(x2, v);
 			count++;
 		}
 		count = minus(0, count);
@@ -159,7 +182,7 @@ public class Algebra {
 		x1 = minus(0, x1);
 		x2 = minus(0, x2);
 		while (x2<=x1) {
-			x2= plus(x2, t);
+			x2= plus(x2, v);
 			count++;
 		}
 	}
