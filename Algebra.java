@@ -68,20 +68,22 @@ public class Algebra {
 		x1 = plus(x1, t);
 			}
 		}
-		else if ((x2 < 0) || (x1 > 0)){
+		else if ((x2 < 0) && (x1 > 0)){
 		for (int i = 0 ; i>x2 ; i--){
 		x1 = minus(x1, t);
 			}
 
 		}
-		else if ((x2 > 0) || (x1 < 0)){
+		else if ((x2 > 0) && (x1 < 0)){
 		for (int i = 1 ; i<x2 ; i++){
 		x1 = plus(x1, t);
 			}
 
 		}
-		else if ((x2 < 0) || (x1 < 0)){
-		for (int i = 1 ; i>x2 ; i--){
+		else if ((x2 < 0) && (x1 < 0)){
+			x1 = minus(0, x1);
+		    x2 = minus(x2, x2);
+		for (int i = 1 ; i<x2 ; i++){
 		x1 = plus(x1, t);
 			}
 
