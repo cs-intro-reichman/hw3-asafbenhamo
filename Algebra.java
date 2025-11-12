@@ -69,16 +69,19 @@ public class Algebra {
 			}
 		}
 		else if ((x2 < 0) && (x1 > 0)){
-		for (int i = 0 ; i>x2 ; i--){
-		x1 = minus(x1, t);
+		x2 = minus(0, x1);
+		for (int i = 0 ; i<x2 ; i++){
+		x1 = plus(x1, t);
 			}
+        x1 = minus(0, x1);
 
 		}
 		else if ((x2 > 0) && (x1 < 0)){
+		x1 = minus(0, x1);
 		for (int i = 1 ; i<x2 ; i++){
 		x1 = plus(x1, t);
 			}
-
+         x1 = minus(0, x1);
 		}
 		else if ((x2 < 0) && (x1 < 0)){
 			x1 = minus(0, x1);
@@ -100,9 +103,27 @@ public class Algebra {
 		int o = x;
 		if (n == 0) return 1;
 		if ( x ==0) return 0;
+		if (n>0) {
 		for (int p = 1 ; p < n; p++){
 			x = times(x, o);
 			}
+		}
+		else if (n<0) {
+			if (mod(n,2)==0) {  
+			n = minus(0, n);
+		   for (int p = 1 ; p < n; p++){
+			x = times(x, o);
+			}
+			}
+			else {
+				n = minus(0, n);
+		   for (int p = 1 ; p < n; p++){
+			x = times(x, o);
+			}
+			x = minus(0, x);
+
+			}
+		}
 		return x;
 	}
 
@@ -136,7 +157,7 @@ public class Algebra {
 	}
 	if ((x2<0)&&(x1<0)) {
 		x1 = minus(0, x1);
-		x2 = minus(x2, x2);
+		x2 = minus(0, x2);
 		while (x2<=x1) {
 			x2= plus(x2, t);
 			count++;
