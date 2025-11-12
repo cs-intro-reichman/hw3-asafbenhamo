@@ -58,7 +58,7 @@ public class Anagram {
 		// Replace the following statement with your code
 		str = str.toLowerCase();
 		String s = "";
-		String letter = "qwertyuioplkjhgfdsazxcvbnm  ";
+		String letter = "qwertyuioplkjhgfdsazxcvbnm";
 		for(int i = 0; i< str.length(); i++){
 			char c = str.charAt(i);
 			if ( letter.indexOf(c) != -1){
@@ -76,19 +76,18 @@ public class Anagram {
 		// Replace the following statement with your code
 		str = preProcess(str);
 		String s = "";
-		String v = "";
-		char o;
-		for(int i = 0; i< str.length(); i++){
-			char c = str.charAt(i);
-			if ( str.indexOf(c) != -1){
+	    String s1 = "";
+		String s2 = "";
+		while (str.length()>0) {
+			int ran = (int) (Math.random() * str.length());
+			char c = str.charAt(ran);
+			int y = str.indexOf(c);
             s = s + c;
-			}
+			s2 = str.substring(0, y);
+			s1 = str.substring(y +1);
+			str = s2 + s1;
+			
 		}
-			//if (str == s){
-            //o = s.charAt(0);
-           // v = s.substring(1, s.length());
-		   // s = v + o ;
-			//}
 			return s;
 		}
 	
