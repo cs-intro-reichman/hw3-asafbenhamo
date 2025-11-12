@@ -33,15 +33,17 @@ public class Anagram {
 		// Replace the following statement with your code
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
+		if (str1.length()!=str2.length()) return false;
 		String s = "";
 	    String s1 = "";
 		int i = 0;
 		while (str2.length()>0) {
 			char c = str1.charAt(i);
+			int y = str2.indexOf(c);
 			if(str2.indexOf(c)== -1) return false;
 			else{
-				s = str2.substring(0, i);
-				s1 = str2.substring(i, str2.length());
+				s = str2.substring(0, y);
+				s1 = str2.substring(y +1);
 				str2 = s + s1;
 			}
 			i++;
@@ -56,7 +58,7 @@ public class Anagram {
 		// Replace the following statement with your code
 		str = str.toLowerCase();
 		String s = "";
-		String letter = "qwertyuioplkjhgfdsazxcvbnm";
+		String letter = "qwertyuioplkjhgfdsazxcvbnm  ";
 		for(int i = 0; i< str.length(); i++){
 			char c = str.charAt(i);
 			if ( letter.indexOf(c) != -1){
@@ -82,17 +84,13 @@ public class Anagram {
             s = s + c;
 			}
 		}
-			if (str == s){
-            o = s.charAt(0);
-            v = s.substring(1, s.length());
-		    s = v + o ;
-			}
-			if (isAnagram(str, s)== true){
-				return s;
-			}
+			//if (str == s){
+            //o = s.charAt(0);
+           // v = s.substring(1, s.length());
+		   // s = v + o ;
+			//}
 			return s;
 		}
 	
 	
-
 	}
