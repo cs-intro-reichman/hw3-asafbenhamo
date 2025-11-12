@@ -85,7 +85,7 @@ public class Algebra {
 		}
 		else if ((x2 < 0) && (x1 < 0)){
 			x1 = minus(0, x1);
-		    x2 = minus(x2, x2);
+		    x2 = minus(0, x2);
 		for (int i = 1 ; i<x2 ; i++){
 		x1 = plus(x1, t);
 			}
